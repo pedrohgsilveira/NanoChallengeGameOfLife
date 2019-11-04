@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92DE81B236D0B150043E2A6 /* TileNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92DE81A236D0B150043E2A6 /* TileNode.swift */; };
 		D9C8812C236B527A00C65E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C8812B236B527A00C65E0D /* AppDelegate.swift */; };
-		D9C8812E236B527A00C65E0D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C8812D236B527A00C65E0D /* art.scnassets */; };
-		D9C88130236B527A00C65E0D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C8812F236B527A00C65E0D /* GameViewController.swift */; };
 		D9C88133236B527A00C65E0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C88131236B527A00C65E0D /* Main.storyboard */; };
 		D9C88135236B527C00C65E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C88134236B527C00C65E0D /* Assets.xcassets */; };
 		D9C88138236B527C00C65E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C88136236B527C00C65E0D /* LaunchScreen.storyboard */; };
+		D9C88140236B549C00C65E0D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C8813F236B549C00C65E0D /* art.scnassets */; };
+		D9C88146236B570700C65E0D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C88145236B570700C65E0D /* GameViewController.swift */; };
+		D9C88158236C68D000C65E0D /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C88157236C68D000C65E0D /* Grid.swift */; };
+		D9C8815C236C6B5A00C65E0D /* GridElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C8815B236C6B5A00C65E0D /* GridElement.swift */; };
+		D9C8815E236CAB5000C65E0D /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C8815D236CAB5000C65E0D /* TileView.swift */; };
+		D9C88160236CB29F00C65E0D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C8815F236CB29F00C65E0D /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D92DE81A236D0B150043E2A6 /* TileNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNode.swift; sourceTree = "<group>"; };
 		D9C88128236B527A00C65E0D /* NanoChallengeGameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoChallengeGameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C8812B236B527A00C65E0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9C8812D236B527A00C65E0D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		D9C8812F236B527A00C65E0D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D9C88132236B527A00C65E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9C88134236B527C00C65E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9C88137236B527C00C65E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9C88139236B527C00C65E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9C8813F236B549C00C65E0D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		D9C88145236B570700C65E0D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D9C88157236C68D000C65E0D /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		D9C8815B236C6B5A00C65E0D /* GridElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridElement.swift; sourceTree = "<group>"; };
+		D9C8815D236CAB5000C65E0D /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		D9C8815F236CB29F00C65E0D /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +67,43 @@
 			isa = PBXGroup;
 			children = (
 				D9C8812B236B527A00C65E0D /* AppDelegate.swift */,
-				D9C8812D236B527A00C65E0D /* art.scnassets */,
-				D9C8812F236B527A00C65E0D /* GameViewController.swift */,
+				D9C8813F236B549C00C65E0D /* art.scnassets */,
 				D9C88131236B527A00C65E0D /* Main.storyboard */,
-				D9C88134236B527C00C65E0D /* Assets.xcassets */,
+				D9C88144236B56E300C65E0D /* Controller */,
+				D9C88153236C64E000C65E0D /* Model */,
+				D9C88154236C64EF00C65E0D /* View */,
 				D9C88136236B527C00C65E0D /* LaunchScreen.storyboard */,
 				D9C88139236B527C00C65E0D /* Info.plist */,
+				D9C88134236B527C00C65E0D /* Assets.xcassets */,
 			);
 			path = NanoChallengeGameOfLife;
+			sourceTree = "<group>";
+		};
+		D9C88144236B56E300C65E0D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9C88145236B570700C65E0D /* GameViewController.swift */,
+				D92DE81A236D0B150043E2A6 /* TileNode.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9C88153236C64E000C65E0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9C88157236C68D000C65E0D /* Grid.swift */,
+				D9C8815B236C6B5A00C65E0D /* GridElement.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9C88154236C64EF00C65E0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9C8815D236CAB5000C65E0D /* TileView.swift */,
+				D9C8815F236CB29F00C65E0D /* GridView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +164,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9C8812E236B527A00C65E0D /* art.scnassets in Resources */,
 				D9C88138236B527C00C65E0D /* LaunchScreen.storyboard in Resources */,
+				D9C88140236B549C00C65E0D /* art.scnassets in Resources */,
 				D9C88135236B527C00C65E0D /* Assets.xcassets in Resources */,
 				D9C88133236B527A00C65E0D /* Main.storyboard in Resources */,
 			);
@@ -139,8 +178,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9C88130236B527A00C65E0D /* GameViewController.swift in Sources */,
+				D9C8815C236C6B5A00C65E0D /* GridElement.swift in Sources */,
+				D9C88146236B570700C65E0D /* GameViewController.swift in Sources */,
 				D9C8812C236B527A00C65E0D /* AppDelegate.swift in Sources */,
+				D9C8815E236CAB5000C65E0D /* TileView.swift in Sources */,
+				D9C88160236CB29F00C65E0D /* GridView.swift in Sources */,
+				D92DE81B236D0B150043E2A6 /* TileNode.swift in Sources */,
+				D9C88158236C68D000C65E0D /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
