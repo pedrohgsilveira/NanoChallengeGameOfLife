@@ -21,6 +21,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     var timeInterval: TimeInterval = 0.0
     var playButton: UIButton?
     var sceneView: SCNView?
+    var zPosition: Float = 0
 
     
     
@@ -29,7 +30,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         let scene = SCNScene(named: "art.scnassets/SceneKit Scene.scn")!
         
-        grid = GridView(rowSize: 10, numberOfElements: 100)
+        grid = GridView(rowSize: 40, numberOfElements: 1600)
         
         guard let grid = grid else {
             return
@@ -142,6 +143,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
                 switch aliveNeighbors {
                 case 3:
                     survivors.append(tile)
+                    
                 default:
                     dead.append(tile)
                 }
@@ -149,7 +151,9 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         }
     }
     
-    func setNewGeneration() {
+    
+    
+    func setBronzeGeneration() {
         for survivor in survivors {
             survivor.changeTileState(state: true)
         }
@@ -158,6 +162,20 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             dead.changeTileState(state: false)
         }
     }
+    
+    func setSilverGeneration() {
+        for survivor in survivors {
+            survivor.changeTileState(state: true)
+            survivor.position.z = zPosition
+        }
+        
+        for dead in dead{
+            dead.changeTileState(state: false)
+        }
+        
+        zPosition += 0.8
+    }
+
     
     func cleanArray() {
         survivors.removeAll(keepingCapacity: false)
@@ -175,7 +193,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             
         if deltaTime > currentTime && sceneView?.isPlaying == true {
                 nextGeneration()
-                setNewGeneration()
+                setSilverGeneration()
                 cleanArray()
                 
                 timeInterval = time

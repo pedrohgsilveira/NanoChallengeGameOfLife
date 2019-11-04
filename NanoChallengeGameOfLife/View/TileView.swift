@@ -13,12 +13,16 @@ public class TileView: GridElement {
     
     var tile: TileNode
     var body: SCNBox
-    var position: SCNVector3
+    var position: SCNVector3 {
+        didSet {
+            self.tile.position = self.position
+        }
+    }
     var isAlive: Bool
     
     init(xPosition: Int, yPosition: Int, xPositionOnScene:Int, YpositionOnScene:Int) {
         
-        self.body = SCNBox(width: 0.8, height: 0.8, length: 0, chamferRadius: 0)
+        self.body = SCNBox(width: 0.8, height: 0.8, length: 0.8, chamferRadius: 0)
         self.body.firstMaterial?.diffuse.contents = UIColor.magenta
         
         self.isAlive = false
@@ -37,7 +41,7 @@ public class TileView: GridElement {
         if isAlive == true {
             self.body.firstMaterial?.diffuse.contents = UIColor.magenta
         } else {
-            self.body.firstMaterial?.diffuse.contents = UIColor.gray
+            self.body.firstMaterial?.diffuse.contents = UIColor.white
         }
         
         self.tile.position = position
@@ -55,7 +59,7 @@ public class TileView: GridElement {
             self.body.firstMaterial?.diffuse.contents = UIColor.magenta
         } else {
             isAlive = false
-            self.body.firstMaterial?.diffuse.contents = UIColor.gray
+            self.body.firstMaterial?.diffuse.contents = UIColor.white
         }
     }
 }
