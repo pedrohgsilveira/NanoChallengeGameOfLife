@@ -9,8 +9,8 @@
 import Foundation
 import SceneKit
 
-public class TileView: GridElement {
-    
+public class TileView: GridElement, NSCopying {
+
     var tile: TileNode
     var body: SCNBox
     var position: SCNVector3 {
@@ -61,6 +61,11 @@ public class TileView: GridElement {
             isAlive = false
             self.body.firstMaterial?.diffuse.contents = UIColor.white
         }
+    }
+    
+    public func copy(with zone: NSZone? = nil) -> Any {
+        let copy = TileView(xPosition: x, yPosition: y, xPositionOnScene: Int(position.x), YpositionOnScene: Int(position.y))
+        return copy
     }
 }
 
