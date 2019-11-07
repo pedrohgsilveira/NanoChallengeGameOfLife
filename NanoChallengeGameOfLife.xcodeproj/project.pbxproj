@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D92DE81B236D0B150043E2A6 /* TileNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92DE81A236D0B150043E2A6 /* TileNode.swift */; };
+		D99C9CA32373561F00743B81 /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99C9CA22373561F00743B81 /* TileType.swift */; };
 		D9C8812C236B527A00C65E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C8812B236B527A00C65E0D /* AppDelegate.swift */; };
 		D9C88133236B527A00C65E0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C88131236B527A00C65E0D /* Main.storyboard */; };
 		D9C88135236B527C00C65E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C88134236B527C00C65E0D /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		D92DE81A236D0B150043E2A6 /* TileNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNode.swift; sourceTree = "<group>"; };
+		D99C9CA22373561F00743B81 /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
 		D9C88128236B527A00C65E0D /* NanoChallengeGameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoChallengeGameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C8812B236B527A00C65E0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9C88132236B527A00C65E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				D9C88157236C68D000C65E0D /* Grid.swift */,
 				D9C8815B236C6B5A00C65E0D /* GridElement.swift */,
+				D99C9CA22373561F00743B81 /* TileType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C8815C236C6B5A00C65E0D /* GridElement.swift in Sources */,
+				D99C9CA32373561F00743B81 /* TileType.swift in Sources */,
 				D9C88146236B570700C65E0D /* GameViewController.swift in Sources */,
 				D9C8812C236B527A00C65E0D /* AppDelegate.swift in Sources */,
 				D9C8815E236CAB5000C65E0D /* TileView.swift in Sources */,

@@ -17,6 +17,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     var currentTime = 0.2
     var enabled = false
     var dead: [TileView] = []
+    var demiDeads: [TileView] = []
     var survivors: [TileView] = []
     var constructors: [TileView] = []
     var timeInterval: TimeInterval = 0.0
@@ -140,9 +141,10 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             guard let tile = result.node as? TileNode else {
                 return
             }
-            if tile.tileView?.isAlive == false{
+            if tile.tileView?.type == .dead{
                 tile.tileView?.changeTileState(state: true)
-            } else {
+            }
+            if tile.tileView?.type == .alive {
                 tile.tileView?.changeTileState(state: false)
             }
                         
@@ -158,8 +160,19 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         for tile in tiles {
                         
             let aliveNeighbors = grid?.aliveNeighbor(by: tile.x, by: tile.y)
+            
+            if tile.type == .alive {
+                switch aliveNeighbors {
+                case 1:
+                    demiDeads.append(tile)
+                case 2,3:
+                    survivors.append(tile)
+                default:
+                    demiDeads.append(tile)
+                }
+            }
 
-            if tile.isAlive == true{
+            if tile.type == .demiAlive{
                 switch aliveNeighbors {
                 case 1:
                     dead.append(tile)
@@ -170,10 +183,10 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
                 }
             }
             
-            if tile.isAlive == false {
+            if tile.type == .dead {
                 switch aliveNeighbors {
                 case 3:
-                    survivors.append(tile)                    
+                    survivors.append(tile)
                 default:
                     dead.append(tile)
                 }
@@ -208,7 +221,34 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         for constructor in constructors {
             scene.rootNode.addChildNode(constructor.tile)
-            constructor.changeTileState(state: false)
+            constructor.changeConstructTileState(state: false)
+            constructor.position.z = zPosition - 0.8
+        }
+        
+        zPosition += 0.8
+    }
+    
+    func setGoldGeneration() {
+        
+        for survivor in survivors {
+            survivor.changeTileState(state: true)
+            let survuvorCopy = survivor.copy()
+            constructors.append(survuvorCopy as! TileView)
+            survivor.position.z = zPosition
+        }
+        
+        for demiDead in demiDeads {
+            demiDead.changeTileState(state: true)
+            demiDead.position.z = zPosition
+        }
+        
+        for dead in dead {
+            dead.changeTileState(state: false)
+        }
+        
+        for constructor in constructors {
+            scene.rootNode.addChildNode(constructor.tile)
+            constructor.changeConstructTileState(state: false)
             constructor.position.z = zPosition - 0.8
         }
         
@@ -219,6 +259,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     func cleanArray() {
         survivors.removeAll(keepingCapacity: false)
         dead.removeAll(keepingCapacity: false)
+        demiDeads.removeAll(keepingCapacity: false)
         constructors.removeAll(keepingCapacity: false)
     }
     
@@ -233,7 +274,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             
         if deltaTime > currentTime && sceneView?.isPlaying == true {
                 nextGeneration()
-                setSilverGeneration()
+                setGoldGeneration()
                 cleanArray()
                 
                 timeInterval = time

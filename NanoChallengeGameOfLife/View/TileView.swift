@@ -19,13 +19,15 @@ public class TileView: GridElement, NSCopying {
         }
     }
     var isAlive: Bool
+    var type: TileType
     
-    init(xPosition: Int, yPosition: Int, xPositionOnScene:Int, YpositionOnScene:Int) {
+    init(xPosition: Int, yPosition: Int, xPositionOnScene:Int, YpositionOnScene:Int, type: TileType) {
         
         self.body = SCNBox(width: 0.8, height: 0.8, length: 0.8, chamferRadius: 0)
         self.body.firstMaterial?.diffuse.contents = UIColor.magenta
         
-        self.isAlive = false
+        self.type = type
+        self.isAlive = type.isAlive
         
         self.tile = TileNode()
         
@@ -41,7 +43,7 @@ public class TileView: GridElement, NSCopying {
         if isAlive == true {
             self.body.firstMaterial?.diffuse.contents = UIColor.magenta
         } else {
-            self.body.firstMaterial?.diffuse.contents = UIColor.white
+            self.body.firstMaterial?.diffuse.contents = UIColor.cyan
         }
         
         self.tile.position = position
@@ -53,18 +55,52 @@ public class TileView: GridElement, NSCopying {
     
     func changeTileState(state: Bool) {
         
-        let state = state
-        if state == true {
-            isAlive = true
-            self.body.firstMaterial?.diffuse.contents = UIColor.magenta
+        if state {
+            switch type {
+            case .alive:
+                self.type = .alive
+                self.isAlive = type.isAlive
+                self.body.firstMaterial?.diffuse.contents = UIColor.magenta
+            case .demiAlive:
+                self.type = .alive
+                self.isAlive = type.isAlive
+                self.body.firstMaterial?.diffuse.contents = UIColor.magenta
+            case .dead:
+                self.type = .alive
+                self.isAlive = type.isAlive
+                self.body.firstMaterial?.diffuse.contents = UIColor.magenta
+            }
         } else {
-            isAlive = false
-            self.body.firstMaterial?.diffuse.contents = UIColor.white
+            switch type {
+            case .alive:
+                self.type = .demiAlive
+                self.isAlive = type.isAlive
+                self.body.firstMaterial?.diffuse.contents = UIColor.systemPink
+            case .demiAlive:
+                self.type = .dead
+                self.isAlive = type.isAlive
+                self.body.firstMaterial?.diffuse.contents = UIColor.cyan
+            case .dead:
+                self.type = .dead
+                self.isAlive = type.isAlive
+                self.body.firstMaterial?.diffuse.contents = UIColor.cyan
+            }
+        }
+    }
+    
+    func changeConstructTileState(state: Bool) {
+        
+            if state {
+                isAlive = true
+                self.body.firstMaterial?.diffuse.contents = UIColor.magenta
+            } else {
+                isAlive = false
+                self.body.firstMaterial?.diffuse.contents = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 1, alpha: 1)
         }
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = TileView(xPosition: x, yPosition: y, xPositionOnScene: Int(position.x), YpositionOnScene: Int(position.y))
+        let copy = TileView(xPosition: x, yPosition: y, xPositionOnScene: Int(position.x), YpositionOnScene: Int(position.y), type: type)
         return copy
     }
 }

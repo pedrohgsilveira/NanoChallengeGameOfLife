@@ -28,8 +28,8 @@ class GridView {
         
         for x in 0..<numberOfColums {
             for y in 0..<numberOfLines {
-                let tileNode = TileView(xPosition: x, yPosition: y, xPositionOnScene: x - (self.numberOfColums / 2), YpositionOnScene: y - (self.numberOfLines / 2))
-                tileNode.isAlive = false
+                let tileNode = TileView(xPosition: x, yPosition: y, xPositionOnScene: x - (self.numberOfColums / 2), YpositionOnScene: y - (self.numberOfLines / 2), type: .dead)
+//                tileNode.isAlive = false
                 tiles.append(tileNode)
             }
         }
